@@ -17,10 +17,10 @@ body{
 }
 
 .title{
-    font-size: 4rem;
+    font-size: 3rem;
 }
 .subText{
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #9da0a6;
 }
 
@@ -28,7 +28,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 40px;
     padding-left: 30px;
     padding-right: 30px;
     
@@ -55,7 +55,10 @@ body{
 
 .innerGrids{
     display: flex;
-    
+}
+
+.squaresContainer{
+    display: flex;
 }
 
 .column{
@@ -80,40 +83,66 @@ body{
 }
 
 
-.erase{
-    background-color:  #161929;
+.options{
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+
+.button{
+
     border: none;
     outline: none;
-    width: 100px;
+    width: 110px;
     height: 30px;
     border-radius: 10px;
     text-align: center;
     font-size: 15px;
     text-transform: uppercase;
     font-weight: bold;
-    
 }
-.erase:hover{
+
+.button.erase{
+    background-color:  #161929;    
+}
+
+.button.erase:hover{
     cursor: pointer;
     background-color: #0D0F18;
     transition: background 0.2s;
 }
 
-.resizeGrid{
+
+
+.button.resizeGrid{
     background-color: #101F25;
-    border: none;
-    outline: none;
-    width: 130px;
-    height: 30px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 15px;
-    text-transform: uppercase;
-    font-weight: bold;
 }
 
-.resizeGrid:hover{
+.button.resizeGrid:hover{
     cursor: pointer;
     background-color: #1A2D35;
     transition: background 0.2s;
+}
+
+.button.rainbowMode{    
+    background: linear-gradient(#5A4FF3,#E35385,#2EC4A7);
+}
+
+.button.rainbowMode:hover{
+    cursor: pointer;
+    background: #5A4FF3;
+    transition: background 0.2s;
+
+}
+
+.button.regularMode{
+    background-color: #0C3A3A;
+}
+
+.button.regularMode:hover{
+    cursor: pointer;
+    background-color: #105050;
+    transition:  background 0.2s;
+
 }
