@@ -26,8 +26,8 @@ body{
 
 .activitySection{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 40px;
     padding-left: 30px;
     padding-right: 30px;
@@ -74,20 +74,25 @@ body{
    
 }
 
-.row:hover{
-    background-color: white;
+
+
+
+
+.panel{
+    width: 240px;
 }
 
-.row.marked{
-    background-color: white;
+.panel .subText{
+    padding-bottom: 8px;
+    font-size: 22px;
+    text-align: center;
 }
-
-
 .options{
     display: flex;
     justify-content: space-between;
     gap: 3px;
     flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
 .button{
@@ -145,4 +150,24 @@ body{
     background-color: #105050;
     transition:  background 0.2s;
 
+}
+
+.button.shadeMode{
+    background-color: #2B2A48;
+}
+
+.button.shadeMode:hover{
+    cursor: pointer;
+    background-color: #3A395C;
+    transition: background 0.2s;
+}
+
+
+.displaySize{
+    text-align: center;
+    color: #6B7E7B;
+}
+
+.displayMode{
+    
 }
