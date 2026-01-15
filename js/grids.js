@@ -79,7 +79,7 @@ function sketch(){
 
     
     
-    displayMode.textContent = mode;
+    displayMode.textContent = "Current: " + mode;
     displaySize.textContent = `Size: ${gridSize} X ${gridSize}`;
     innerGrid.addEventListener("mouseover",(event) =>{
         let toBeMarked = event.target;
@@ -111,17 +111,17 @@ function sketch(){
     
     regularMode.addEventListener("click",()=>{
         mode = "regular";
-        displayMode.textContent = mode;
+        displayMode.textContent = "Current: " + mode;
     });
 
     shadeMode.addEventListener("click",()=>{
         mode = "shade";
-        displayMode.textContent = mode;
+        displayMode.textContent = "Current: " + mode;
     });
 
     rainbowMode.addEventListener("click",() =>{
         mode = "rainBow";
-        displayMode.textContent = mode;
+        displayMode.textContent = "Current: " + mode;
         
     });
 
