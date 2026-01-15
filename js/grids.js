@@ -1,5 +1,7 @@
+let gridSize = 16;
 let innerGrid = document.querySelector(".innerGrids");
 let squaresContainer;
+let displaySize = document.querySelector(".displaySize");
 
 function makeGrid(size){
     
@@ -46,6 +48,7 @@ function getRandomColor(){
 
 function normalMode(toBeMarked){
     toBeMarked.style.backgroundColor = "white";
+    toBeMarked.style.opacity = "";
 }
 
 function shade(toBeMarked,opacity){
@@ -54,37 +57,64 @@ function shade(toBeMarked,opacity){
     
 }
 
+
 function rainBow(toBeMarked){
     let color = getRandomColor();
     toBeMarked.style.backgroundColor = color;
+    toBeMarked.style.opacity = "";
+}
+
+function resize(){
+    gridSize = parseInt(prompt("type the size you want :), (min 2,max 100) "));
+       
+        if(gridSize >= 2 && gridSize <= 100 ){
+            squaresContainer.remove();
+            makeGrid(gridSize);
+            displaySize.textContent = `Size: ${gridSize} X ${gridSize}`;
+
+            displaySize.textContent = `Size: ${gridSize} X ${gridSize}`;
+
+        }else{
+            displaySize.textContent = "That value is not what is expected :(";
+        }
+}
+
+function erase(toBeMarked){
+    toBeMarked.style.backgroundColor = "";
+    toBeMarked.style.opacity = "";
+}
+
+function clear(){
+    let rowALL = document.querySelectorAll(".row");
+    rowALL.forEach(row => {
+    
+        row.style.backgroundColor = "";
+        row.style.opacity = "";
+    });
 }
 
 
-function sketch(){
-    let gridSize = 16;
-    makeGrid(gridSize);
 
+function sketch(){
+    
+
+    makeGrid(gridSize);
+    let toBeMarked;
     let mode = "regular";
     let shadeOpacity = 0;
 
-    let erase = document.querySelector(".erase");
-    let resizeGrid = document.querySelector(".resizeGrid");
-    let regularMode = document.querySelector(".regularMode");
-    let rainbowMode = document.querySelector(".rainbowMode"); 
-    let shadeMode = document.querySelector(".shadeMode");
-
-    let displaySize = document.querySelector(".displaySize");
-
+    let options = document.querySelector(".options");
     let displayMode = document.querySelector(".displayMode");
-
-    
     
     displayMode.textContent = "Current: " + mode;
     displaySize.textContent = `Size: ${gridSize} X ${gridSize}`;
+
+
+    
     innerGrid.addEventListener("mouseover",(event) =>{
-        let toBeMarked = event.target;
+        toBeMarked = event.target;
         //console.log(toBeMarked);
-        
+    
         if(mode == "regular"){
             normalMode(toBeMarked);
         }else if(mode == "rainBow"){
@@ -96,51 +126,36 @@ function sketch(){
             shade(toBeMarked,shadeOpacity);
             shadeOpacity += 10;
             
+        }else if(mode == "erase"){
+            erase(toBeMarked);
+        }    
+    });
+
+
+    options.addEventListener("click",(event) =>{
+        let btn = event.target.closest("button");
+        if (!btn) return;
+
+        mode = btn.id;
+        displayMode.textContent = "Current: " + mode;
+
+        if(mode == "resize"){
+            resize();
+            mode = "regular";
+            displayMode.textContent = "Current: " + mode;
+        }else if(mode == "clear"){
+           clear();
+           mode = "regular";
+           displayMode.textContent = "Current: " + mode;
+           
         }
-
-        erase.addEventListener("click",()=>{
-            toBeMarked.style.backgroundColor = "";
-            toBeMarked.style.opacity = "";
-            
-        });
-        
-        
-    });
-    
-   
-    
-    regularMode.addEventListener("click",()=>{
-        mode = "regular";
-        displayMode.textContent = "Current: " + mode;
-    });
-
-    shadeMode.addEventListener("click",()=>{
-        mode = "shade";
-        displayMode.textContent = "Current: " + mode;
-    });
-
-    rainbowMode.addEventListener("click",() =>{
-        mode = "rainBow";
-        displayMode.textContent = "Current: " + mode;
         
     });
 
+
+
     
     
-
-    resizeGrid.addEventListener("click",() =>{
-        gridSize = parseInt(prompt("type the size you want :), (min 2,max 100) "));
-       
-        if(gridSize >= 2 && gridSize <= 100 ){
-            squaresContainer.remove();
-            makeGrid(gridSize);
-            displaySize.textContent = `Size: ${gridSize} X ${gridSize}`;
-        }
-    });
-
-    
-
-
 }
 
 sketch();

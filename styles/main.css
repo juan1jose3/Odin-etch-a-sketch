@@ -108,14 +108,17 @@ body{
     font-weight: bold;
 }
 
+.button:hover{
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
 .button.erase{
     background-color:  #161929;    
 }
 
 .button.erase:hover{
-    cursor: pointer;
     background-color: #0D0F18;
-    transition: background 0.2s;
 }
 
 
@@ -125,9 +128,7 @@ body{
 }
 
 .button.resizeGrid:hover{
-    cursor: pointer;
     background-color: #1A2D35;
-    transition: background 0.2s;
 }
 
 .button.rainbowMode{    
@@ -135,9 +136,7 @@ body{
 }
 
 .button.rainbowMode:hover{
-    cursor: pointer;
     background: #5A4FF3;
-    transition: background 0.2s;
 
 }
 
@@ -146,9 +145,7 @@ body{
 }
 
 .button.regularMode:hover{
-    cursor: pointer;
     background-color: #105050;
-    transition:  background 0.2s;
 
 }
 
@@ -157,11 +154,17 @@ body{
 }
 
 .button.shadeMode:hover{
-    cursor: pointer;
+    
     background-color: #3A395C;
-    transition: background 0.2s;
 }
 
+.button.clear{
+    background-color: #536b78;
+}
+
+.button.clear:hover{
+    background-color: #3f5863;
+}
 
 .displaySize{
     text-align: center;
